@@ -1,0 +1,21 @@
+# Spacefile Docs: https://go.deta.dev/docs/spacefile/v0
+v: 0
+app_name: "microletter"
+icon: "./templates/assets/img/android-chrome-512x512.png"
+micros:
+    - name: microletter
+      src: . 
+      engine: python3.9
+      primary: true
+      presets:
+        env:
+          - name: SMTP_SERVER
+            description: "The SMTP server. Only servers with SSL work."
+          - name: SMTP_PORT 
+            description: "The port for SMTP traffic. Use the port for SMTP over SSL."
+          - name: SMTP_USERNAME
+            description: "Most likely your email address you want to send your newsletter with."
+          - name: SMTP_PASSWORD
+            description: "The password for your SMTP account."
+      public_routes:
+        - "/(?!(dashboard|setup))*"
